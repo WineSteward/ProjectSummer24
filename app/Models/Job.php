@@ -11,6 +11,7 @@ class Job extends Model
     
     protected $table = 'job_listings';
 
+    
 
     public function employer()
     {
