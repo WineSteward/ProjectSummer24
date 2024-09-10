@@ -12,14 +12,10 @@
   
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-4">
-            <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
+              <x-form-label for="title">Title</x-form-label>          
             <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <input required type="text" name="title" id="title" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Wine Steward">
-              </div>
-              @error('title')
-                  <p class="mt-2 text-xd text-red-500 font-semibold">{{$message}}</p>
-              @enderror
+              <x-form-input name="title" id="title" required placeholder="Wine Steward"></x-form-input>
+              <x-form-error name="title"></x-form-error>
             </div>
           </div>
           
