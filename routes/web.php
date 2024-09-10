@@ -16,7 +16,7 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
-
+//index
 Route::get('/jobs', function () {
 
     $jobs = Job::with('employer')->latest()->simplePaginate(3);
@@ -26,12 +26,19 @@ Route::get('/jobs', function () {
     ]);
 });
 
+//create
 Route::get('/jobs/create', function(){
 
     return view('jobs/create');
 });
 
+//store
 Route::post('/jobs', function() {
+
+    request()->validate([
+        'title' => ['required', 'min:3'],
+        'salary' => ['required']
+    ]);
 
     Job::create([
         'title' => request('title'),
@@ -42,9 +49,54 @@ Route::post('/jobs', function() {
     return redirect('/jobs');
 });
 
+
+//show
 Route::get('/jobs/{id}', function ($id)  {
     
     $job = Job::find($id);
 
     return view('jobs/show', ['job' => $job]);
+});
+
+//edit
+Route::get('/jobs/{id}/edit', function ($id)  {
+    
+    $job = Job::find($id);
+
+    return view('jobs/edit', ['job' => $job]);
+});
+
+//update
+Route::patch('/jobs/{job}', function (Job $job)  {
+
+    //validate
+    request()->validate([
+        'title'=> ['required', 'min:3'],
+        'salary'=> ['required']
+    ]);
+    //authorize ---- on hold
+
+    //update the job and persist
+
+    $job->update([
+        'title' => request('title'),
+        'salary' =>request('salary')
+    ]);
+
+    //redirect
+    return redirect('jobs/' . $job->id);
+});
+
+//destroy
+Route::delete('/jobs/{job}', function (Job $job)  {
+    
+    //authorize ---- on hold
+
+    //delete job
+
+    $job->delete();
+    //redirect
+
+
+    return redirect('/jobs');
 });
