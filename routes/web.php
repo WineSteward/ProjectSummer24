@@ -19,7 +19,7 @@ Route::get('/contacts', function () {
 
 Route::get('/jobs', function () {
 
-    $jobs = Job::with('employer')->latest()->simplePaginate(5);
+    $jobs = Job::with('employer')->latest()->simplePaginate(3);
 
     return view('jobs/index', [
         'jobs' => $jobs
