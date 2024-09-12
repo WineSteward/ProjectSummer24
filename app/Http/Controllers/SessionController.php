@@ -22,11 +22,11 @@ class SessionController extends Controller
         ]);
 
         //attempt to login
-        if(! Auth::attempt($attributes));
+        if(! Auth::attempt($attributes))
         {
             throw ValidationException::withMessages([
                 'email' => 'The credentials do not match'
-            ]);
+            ]);        
         }
 
         //regenerate the session token
