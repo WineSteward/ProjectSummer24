@@ -45,6 +45,8 @@ Route::post('/login', [SessionController::class, 'store']);
 Route::post('/logout', [SessionController::class, 'destroy']);
 
 
+#CHANGE APP_URL em .ENV para projectsummer.test para funcionar com o HERD
+
 
 Route::get('/test', function (){
    

@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Laravel Project</title>
+
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Styles -->
     <style>
         /* ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com */
@@ -912,7 +913,7 @@
                         <div class="flex-shrink-0">
                             <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500">
                         </div>
-                        <div class="hidden md:block">
+                        <div class="max-sm:hidden">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                                 <x-nav-link href="/jobs" :active="request()->is('jobs')">Jobs</x-nav-link>
@@ -921,7 +922,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block">
+                    <div class="max-sm:hidden">
                         <div class="ml-4 flex items-center md:ml-6">
                             @guest
                                 <x-nav-link href="/login" :active="request()->is('login')">Login</x-nav-link>
@@ -936,7 +937,7 @@
                             @endauth
                             </div>
                     </div>
-                    <div class="-mr-2 flex md:hidden">
+                    <div class="sm:hidden block">
                         <!-- Mobile menu button -->
                         <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
                             <span class="absolute -inset-0.5"></span>
